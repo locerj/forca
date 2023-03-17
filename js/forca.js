@@ -86,8 +86,10 @@ function montarPalavraNaTela() {
 }
 
 function verificaLetraEscolhida(letra){
-    if(tentativas > 0){
+    if (tentativas > 0)
+    {
         mudarStyleLetra("tecla-" + letra);
+        comparaListas(letra);
     }
     
 }
@@ -96,4 +98,20 @@ function mudarStyleLetra(tecla){
     document.getElementById(tecla).style.background = "#c71585";
     document.getElementById(tecla).style.color = "#fff"
 
+}
+
+function comparaLista(letra){
+    const pos = palavraSecretaSorteada.indexOF(letra);
+    if (pos < 0) {
+       tentativas--; 
+       //aparecer imagem
+        //verificar tentativas -msg
+    }
+    else {
+        for (i = 0; i < palavraSecretaSorteada.length; i++) {
+            if (palavraSecretaSorteada[i] == letra) {
+                listaDinamica[i] = letra;
+            }
+        }
+    }
 }
