@@ -6,13 +6,17 @@
 }
 
 body {
-    width: 100vh;
+    width: 90%;
     height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgb(57, 146, 230);
     font-family: 'Ubuntu', sans-serif;
 }
 
 .container {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +25,8 @@ body {
 }
 
 #imagem {
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(../img/forca.png);
     width: 234px;
     height: 272px;
@@ -28,6 +34,8 @@ body {
 }
 
 #palavra-secreta {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,6 +45,8 @@ body {
 }
 
 .letras {
+    margin-left: auto;
+    margin-right: auto;
     width: 16px;
     text-align: center;
     border-bottom: 2px solid #8d5546;
@@ -56,6 +66,8 @@ body {
 }
 
 #teclado {
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
 
 }

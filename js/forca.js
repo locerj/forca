@@ -1,3 +1,4 @@
+let jogarNovamente = true;
 let tentativas = 6;
 let listaDinamica = [];
 let palavraSecretaCategoria;
@@ -140,7 +141,7 @@ function mudarStyleLetra(tecla, condicao){
 
 }
 
-function comparaListas(letra){
+async function comparaListas(letra){
     const pos = palavraSecretaSorteada.indexOf(letra);
     if (pos < 0) {
        tentativas--; 
@@ -169,7 +170,18 @@ function comparaListas(letra){
     if (vitoria == true) {
         abreModal("Parabéns!", "Você venceu!!!");
         tentativas = 0;
+
+        while (jogarNovamente == true) {
+            document.getElementById("btnReiniciar").style.backgroundColor = 'red';
+             await atraso(500)
+            document.getElementById("btnReiniciar").style.backgroundColor = 'yellow';
+            await atraso(500)
+        }
     }
+}
+
+async function atraso(tempo){
+    return new Promise(x => setTimeout(x, tempo))
 }
 
 function carregaImagemForca(){
