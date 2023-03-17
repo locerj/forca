@@ -149,6 +149,7 @@ async function comparaListas(letra){
 
        if (tentativas == 0) {
             abreModal("Ops!", "Não foi dessa vez...<br>A palavra secreta era " + palavraSecretaSorteada);
+            piscarBotaoJogarNovamente();
        }
     }
     else {
@@ -170,13 +171,19 @@ async function comparaListas(letra){
     if (vitoria == true) {
         abreModal("Parabéns!", "Você venceu!!!");
         tentativas = 0;
+        piscarBotaoJogarNovamente();
+       
+    }
+}
 
-        while (jogarNovamente == true) {
-            document.getElementById("btnReiniciar").style.backgroundColor = 'red';
-             await atraso(500)
-            document.getElementById("btnReiniciar").style.backgroundColor = 'yellow';
-            await atraso(500)
-        }
+async function piscarBotaoJogarNovamente() {
+    while (jogarNovamente == true) {
+        document.getElementById("btnReiniciar").style.backgroundColor = 'red';
+        document.getElementById("btnReiniciar").style.scale = 1.3;
+         await atraso(500)
+        document.getElementById("btnReiniciar").style.backgroundColor = 'yellow';
+        document.getElementById("btnReiniciar").style.scale = 1;
+        await atraso(500)
     }
 }
 
@@ -223,5 +230,6 @@ function abreModal(titulo, mensagem) {
 
 let btnReiniciar = document.querySelector('#btnReiniciar');
 btnReiniciar.addEventListener("click", function(){
+    jogarNovamente = false;
     location.reload();
 });
