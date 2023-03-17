@@ -1,3 +1,4 @@
+let tentativas = 6;
 let listaDinamica = [];
 let palavraSecretaCategoria;
 let palavraSecretaSorteada;
@@ -52,6 +53,7 @@ const palavras = [
         categoria: "ANIMAIS"
     }
 ]; 
+
 criarPalavraSecreta()
 function criarPalavraSecreta() {
     const indexPalavra = parseInt(Math.random() * palavras.length);
@@ -63,6 +65,7 @@ function criarPalavraSecreta() {
 
 
 }
+
 montarPalavraNaTela()
 function montarPalavraNaTela() {
     const categoria = document.getElementById("categoria");
@@ -80,4 +83,17 @@ function montarPalavraNaTela() {
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>"+listaDinamica[i]+"</div>"
         }
     }
+}
+
+function verificaLetraEscolhida(letra){
+    if(tentativas > 0){
+        mudarStyleLetra("tecla-" + letra);
+    }
+    
+}
+
+function mudarStyleLetra(tecla){
+    document.getElementById(tecla).style.background = "#c71585";
+    document.getElementById(tecla).style.color = "#fff"
+
 }
