@@ -107,7 +107,10 @@ function comparaListas(letra){
     if (pos < 0) {
        tentativas--; 
        carregaImagemForca();
-        //verificar tentativas -msg
+
+       if (tentativas == 0) {
+            abreModal("Ops!", "Não foi dessa vez...<br>A palavra secreta era " + palavraSecretaSorteada);
+       }
     }
     else {
         for (i = 0; i < palavraSecretaSorteada.length; i++) {
@@ -125,7 +128,7 @@ function comparaListas(letra){
     }
 
     if (vitoria == true) {
-        //msg tela
+        abreModal("Parabéns!", "Você venceu!!!");
         tentativas = 0;
     }
 }
@@ -155,3 +158,19 @@ function carregaImagemForca(){
             break;
     }   
 }
+
+function abreModal(titulo, mensagem) {
+    let modalTitulo = document.getElementById('exampleModalLabel');
+    modalTitulo.innerText = titulo;
+    let modalBody = document.getElementById('modalBody');
+    modalBody.innerHTML = mensagem;
+
+    $("#myModal").modal({
+        show: true
+    });
+}
+
+let btnReiniciar = document.querySelector('#btnReiniciar');
+btnReiniciar.addEventListener("click", function(){
+    location.reload();
+});
