@@ -8,7 +8,7 @@
 body {
     width: 100vh;
     height: 90vh;
-    margin-top: 10px;
+    margin: 10px auto;
     background-color: goldenrod;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -35,4 +35,19 @@ body {
     align-items: center;
     font-size: 1em;
     margin-top: 30px
+}
+
+.letras {
+    width: 16px;
+    text-align: center;
+    border-bottom: 2px solid #8b008b;
+    color: #fff;
+    padding: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#teclado {
+    margin-top: 30px;
+
 }
